@@ -12,14 +12,17 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 public class FindingsController {
     private FindingService findingService;
-    @GetMapping("/{id}")
-    public GetByIdFindingResponse getBtId(@PathVariable int id){
-        return findingService.getById(id);
-    }
+
+
     @PostMapping("/add")
     @ResponseStatus(code = HttpStatus.CREATED)
     public void add(@RequestBody CreateFindingRequest createFindingRequest){
         this.findingService.add(createFindingRequest);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(int id){
+        this.findingService.delete(id);
     }
 
 }

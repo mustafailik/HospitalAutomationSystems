@@ -24,4 +24,9 @@ public class PolyclinicsController {
     public void add(@RequestBody CreatePolyclinicRequest createPolyclinicRequest){
         this.polyclinicService.add(createPolyclinicRequest);
     }
+
+    @DeleteMapping("/{id}")
+    public void delete(int id){
+        this.polyclinicService.delete(id);
+    }
 }

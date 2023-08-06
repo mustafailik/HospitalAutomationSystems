@@ -13,14 +13,22 @@ import lombok.NoArgsConstructor;
 public class CreatePatientRequest {
     @NotNull
     @NotBlank
-    @Size(min = 3, max = 20)
+    @Size(min = 2, max = 50)
     private String name;
     @NotNull
     @NotBlank
-    @Size(min = 3, max = 20)
-    private String surName;
+    @Size(min = 2, max = 50)
+    private String surname;
     @NotNull
     @NotBlank
-    @Size(min = 3, max = 20)
+    @Size(min = 2, max = 50)
+    private String username;
+    @NotNull
+    @NotBlank
+    @Size(min = 2, max = 50)
+    private String password;
+    @NotNull
+    @NotBlank
+    @Size(min = 2, max = 50)
     private String identityNumber;
 }

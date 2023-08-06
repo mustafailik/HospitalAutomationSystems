@@ -8,5 +8,6 @@ import java.util.List;
 public interface PolyclinicService {
     List<GetAllPolyclinicResponse> getAll();
     void add(CreatePolyclinicRequest createPolyclinicRequest);
+    void delete(int id);
 
 }

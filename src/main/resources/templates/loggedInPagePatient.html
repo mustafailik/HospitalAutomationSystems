@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <title>Hasta</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="Free HTML Templates" name="keywords">
+  <meta content="Free HTML Templates" name="description">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Favicon -->
+  <link href="/img/favicon.ico" rel="icon">
+
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Icon Font Stylesheet -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Libraries Stylesheet -->
+  <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+  <!-- Customized Bootstrap Stylesheet -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+  <!-- Template Stylesheet -->
+  <link rel="stylesheet" href="/css/style.css" >
+</head>
+
+<body>
+
+
+
+<!-- Navbar Start -->
+<div class="container-fluid sticky-top bg-white shadow-sm">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
+      <a th:href="@{loggedInPagePatient}" class="navbar-brand">
+        <h1 class="m-0 text-uppercase text-primary"><i class="fa fa-clinic-medical me-2"></i>Hastane Randevu Sistemi</h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto py-0"  id="navbar-nav">
+          <a href="#index" class="nav-item nav-link active">Ana Sayfa</a>
+          <a href="#about" class="nav-item nav-link">Hakkımızda</a>
+          <a href="#service" class="nav-item nav-link">Hizmetler</a>
+
+          <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Veriler</a>
+            <div class="dropdown-menu m-0">
+
+              <a th:href="@{report}" class="dropdown-item">Raporlar</a>
+              <a th:href="@{prescription}" class="dropdown-item">Reçeteler</a>
+              <a th:href="@{appointments}" class="dropdown-item">Randevular</a>
+
+            </div>
+          </div>
+          <a href="#contact" class="nav-item nav-link">iletişim</a>
+
+          <a th:href="@{index}" class="nav-item nav-link">Çıkış</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+<!-- Navbar End -->
+
+
+<!-- Hero Start -->
+<div class="container-fluid bg-primary py-5 mb-5 hero-header">
+  <div class="container py-5">
+    <div class="row justify-content-start">
+      <div class="col-lg-8 text-center text-lg-start">
+
+        <h5 class="display-1 text-white mb-md-4">Randevu Almak İçin:</h5>
+        <div class="pt-2">
+          <a th:href="@{appointment}" class="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">Randevu Al</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Hero End -->
+
+
+<!-- About Start -->
+<section id="about">
+<div class="container-fluid py-5">
+  <div class="container">
+    <div class="row gx-5">
+      <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 500px;">
+        <div class="position-relative h-100">
+          <img class="position-absolute w-100 h-100 rounded" src="/img/about.jpg" style="object-fit: cover;">
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="mb-4">
+          <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Hakkımızda</h5>
+          <h1 class="display-4">Siz ve Sevdikleriniz İçin En İyi Sağlık Hizmetleri</h1>
+        </div>
+        <p>Sağlık sektöründeki teknolojik gelişmeleri sizler için takip ediyoruz. Sizin ve sevdiklerinizin daha iyi hizmet alabilmesi için günden güne gelişen teknolojilerle kendimizi geliştirerek sektöre öncülük ediyoruz. Emin ellerdesiniz.</p>
+
+        <div class="row g-3 pt-3">
+          <div class="col-sm-3 col-6">
+            <div class="bg-light text-center rounded-circle py-4">
+              <i class="fa fa-3x fa-user-md text-primary mb-3"></i>
+              <h6 class="mb-0">Nitelikli<small class="d-block text-primary">Doktorlar</small></h6>
+            </div>
+          </div>
+          <div class="col-sm-3 col-6">
+            <div class="bg-light text-center rounded-circle py-4">
+              <i class="fa fa-3x fa-microscope text-primary mb-3"></i>
+              <h6 class="mb-0">Kesin<small class="d-block text-primary">Sonuçlar</small></h6>
+            </div>
+          </div>
+          <div class="col-sm-3 col-6">
+            <div class="bg-light text-center rounded-circle py-4">
+              <i class="fa fa-3x fa-ambulance text-primary mb-3"></i>
+              <h6 class="mb-0">Sağlık<small class="d-block text-primary">Hizmetleri</small></h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- About End -->
+
+
+<!-- Services Start -->
+<section id="service">
+<div class="container-fluid py-5">
+  <div class="container">
+    <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+      <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Hizmetlerimiz</h5>
+      <h1 class="display-4">Mükemmel Sağlık Hizmetleri</h1>
+    </div>
+    <div class="row g-5">
+      <div class="col-lg-4 col-md-6">
+        <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+          <div class="service-icon mb-4">
+            <i class="fa fa-2x fa-user-md text-white"></i>
+          </div>
+          <h4 class="mb-3">Hekim Seçme</h4>
+          <p class="m-0">Hastalarımız diledikleri polikliniğe ait doktorları görerek gitmek istedikleri doktorları seçebileceklerdir.</p>
+          <a class="btn btn-lg btn-primary rounded-pill" href="">
+            <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+          <div class="service-icon mb-4">
+            <i class="fa fa-2x fa-users text-white"></i>
+          </div>
+          <h4 class="mb-3">Randevu İşlemleri</h4>
+          <p class="m-0">Online randevu sistemi sayesinde gitmek istedikleri doktorları seçerek hastanede sıra beklemeden randevu alabileceklerdir.</p>
+          <a class="btn btn-lg btn-primary rounded-pill" href="">
+            <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+
+      <div class="col-lg-4 col-md-6">
+        <div class="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
+          <div class="service-icon mb-4">
+            <i class="fa fa-2x fa-laptop text-white"></i>
+          </div>
+          <h4 class="mb-3">Veri Depolama</h4>
+          <p class="m-0">Hastalarımızın sonuçları, raporları ve reçete bilgilerini güvenli ortamlarda saklayarak erişimi kolaylaştırıyruz hemde tedavi sürecine etki ediyoruz.</p>
+          <a class="btn btn-lg btn-primary rounded-pill" href="">
+            <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</section>
+<!-- Services End -->
+
+
+<!-- Team Start -->
+<section id="team">
+<div class="container-fluid py-5">
+  <div class="container">
+    <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+      <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Doktorlarımız</h5>
+      <h1 class="display-4">Profesyonel Doktor Ekibimiz</h1>
+    </div>
+    <div class="owl-carousel team-carousel position-relative">
+      <div class="team-item">
+        <div class="row g-0 bg-light rounded overflow-hidden">
+          <div class="col-12 col-sm-5 h-100">
+            <img class="img-fluid h-100" src="/img/team-1.jpg" style="object-fit: cover;">
+          </div>
+          <div class="col-12 col-sm-7 h-100 d-flex flex-column">
+            <div class="mt-auto p-4">
+              <h3>Mustafa Bedirhan İLİK</h3>
+              <h6 class="fw-normal fst-italic text-primary mb-4">Dahiliye</h6>
+              <p class="m-0">Gaziantep'in sağlık sektörünüdeki öncü isimlerinden Mustafa Bedirhan İLİK artık hastanemizde.</p>
+            </div>
+            <div class="d-flex mt-auto border-top p-4">
+              <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="https://twitter.com/bedosilin"><i class="fab fa-twitter"></i></a>
+              <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="https://www.instagram.com/mustafaailik/"><i class="fab fa-instagram"></i></a>
+              <a class="btn btn-lg btn-primary btn-lg-square rounded-circle" href="https://www.linkedin.com/in/mustafaailik/"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="team-item">
+        <div class="row g-0 bg-light rounded overflow-hidden">
+          <div class="col-12 col-sm-5 h-100">
+            <img class="img-fluid h-100" src="/img/team-2.jpg" style="object-fit: cover;">
+          </div>
+          <div class="col-12 col-sm-7 h-100 d-flex flex-column">
+            <div class="mt-auto p-4">
+              <h3>Ahmet Anıl DEMİRYÜREK</h3>
+              <h6 class="fw-normal fst-italic text-primary mb-4">Nöroloji</h6>
+              <p class="m-0">Nöroloji alanında uzmanlığını tamamlamış olan Ahmet Anıl DEMİRYÜREK dev kadromuzda.</p>
+            </div>
+            <div class="d-flex mt-auto border-top p-4">
+              <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="https://twitter.com/Marazanill"><i class="fab fa-twitter"></i></a>
+              <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="https://www.instagram.com/dmryrk.anil/"><i class="fab fa-instagram"></i></a>
+              <a class="btn btn-lg btn-primary btn-lg-square rounded-circle" href="https://www.linkedin.com/in/ahmetanildemiryurek/"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="team-item">
+        <div class="row g-0 bg-light rounded overflow-hidden">
+          <div class="col-12 col-sm-5 h-100">
+            <img class="img-fluid h-100" src="/img/team-3.jpg" style="object-fit: cover;">
+          </div>
+          <div class="col-12 col-sm-7 h-100 d-flex flex-column">
+            <div class="mt-auto p-4">
+              <h3>Zehra KARAGÖZ</h3>
+              <h6 class="fw-normal fst-italic text-primary mb-4">Üroloji</h6>
+              <p class="m-0">Sayısız tıbbi makaleler yayınlayan Zehra KARAGÖZ hastanemizde hizmet vermektedir.</p>
+            </div>
+            <div class="d-flex mt-auto border-top p-4">
+              <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="https://twitter.com/bedosilin"><i class="fab fa-twitter"></i></a>
+              <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-3" href="https://www.instagram.com/dmryrk.anil/"><i class="fab fa-instagram"></i></a>
+              <a class="btn btn-lg btn-primary btn-lg-square rounded-circle" href="https://www.linkedin.com/in/mustafaailik/"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- Team End -->
+
+
+<!-- Testimonial Start -->
+<section id="testimonial">
+<div class="container-fluid py-5">
+  <div class="container">
+    <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+      <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Görüşler</h5>
+      <h1 class="display-4">Hastalarımız Hakkımızda Neler Düşünüyor</h1>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="owl-carousel testimonial-carousel">
+          <div class="testimonial-item text-center">
+            <div class="position-relative mb-5">
+              <img class="img-fluid rounded-circle mx-auto" src="/img/testimonial-1.jpg" alt="">
+              <div class="position-absolute top-100 start-50 translate-middle d-flex align-items-center justify-content-center bg-white rounded-circle" style="width: 60px; height: 60px;">
+                <i class="fa fa-quote-left fa-2x text-primary"></i>
+              </div>
+            </div>
+            <p class="fs-4 fw-normal"> Online randevu sistemi sayesinde artık sıra beklemeden ve daha kolay bir şekilde işlemlerimi yapabiliyorum. Hasta olarak sisteme giriş yaptığımda sonuçlarım, raporlarım ve reçetelerime erişim sağlayabiliyorum. Verilerime erişmek artık daha kolay. </p>
+            <hr class="w-25 mx-auto">
+            <h3>Elif Korkmaz</h3>
+            <h6 class="fw-normal text-primary mb-3">Öğretmen</h6>
+          </div>
+          <div class="testimonial-item text-center">
+            <div class="position-relative mb-5">
+              <img class="img-fluid rounded-circle mx-auto" src="/img/selman.jpeg" alt="">
+              <div class="position-absolute top-100 start-50 translate-middle d-flex align-items-center justify-content-center bg-white rounded-circle" style="width: 60px; height: 60px;">
+                <i class="fa fa-quote-left fa-2x text-primary"></i>
+              </div>
+            </div>
+            <p class="fs-4 fw-normal">Online randevu sistemi sayesinde gideceğim doktoru seçebiliyorum. Hasta olarak sisteme giriş yaptığımda sonuçlarım, raporlarım ve reçetelerime erişim sağlayabiliyorum. Verilerime erişmek artık daha kolay. </p>
+            <hr class="w-25 mx-auto">
+            <h3>Mehmet Selman Aslan</h3>
+            <h6 class="fw-normal text-primary mb-3">Öğrenci</h6>
+          </div>
+          <div class="testimonial-item text-center">
+            <div class="position-relative mb-5">
+              <img class="img-fluid rounded-circle mx-auto" src="/img/testimonial-3.jpg" alt="">
+              <div class="position-absolute top-100 start-50 translate-middle d-flex align-items-center justify-content-center bg-white rounded-circle" style="width: 60px; height: 60px;">
+                <i class="fa fa-quote-left fa-2x text-primary"></i>
+              </div>
+            </div>
+            <p class="fs-4 fw-normal">Online randevu sistemi sayesinde gideceğim doktoru seçebiliyorum. Hasta olarak sisteme giriş yaptığımda sonuçlarım, raporlarım ve reçetelerime erişim sağlayabiliyorum. Verilerime erişmek artık daha kolay. </p>
+            <hr class="w-25 mx-auto">
+            <h3>Ayşe Büyük</h3>
+            <h6 class="fw-normal text-primary mb-3">Mimar</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<!-- Testimonial End -->
+
+<!-- Contact Start -->
+<section id="contact">
+  <div class="container-fluid pt-5">
+    <div class="container">
+      <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+
+        <h1 class="display-4">Aşağıdaki Kanallar Aracılığıyla Bizimle İletişime Geçebilirsiniz </h1>
+      </div>
+      <div class="row g-5 mb-5">
+        <div class="col-lg-4">
+          <div class="bg-light rounded d-flex flex-column align-items-center justify-content-center text-center" style="height: 200px;">
+            <div class="d-flex align-items-center justify-content-center bg-primary rounded-circle mb-4" style="width: 100px; height: 70px; transform: rotate(-15deg);">
+              <i class="fa fa-2x fa-location-arrow text-white" style="transform: rotate(15deg);"></i>
+            </div>
+            <h6 class="mb-0">84057, Gaziantep, TÜRKİYE</h6>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="bg-light rounded d-flex flex-column align-items-center justify-content-center text-center" style="height: 200px;">
+            <div class="d-flex align-items-center justify-content-center bg-primary rounded-circle mb-4" style="width: 100px; height: 70px; transform: rotate(-15deg);">
+              <i class="fa fa-2x fa-phone text-white" style="transform: rotate(15deg);"></i>
+            </div>
+            <h6 class="mb-0">+90 555 555 55 55</h6>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="bg-light rounded d-flex flex-column align-items-center justify-content-center text-center" style="height: 200px;">
+            <div class="d-flex align-items-center justify-content-center bg-primary rounded-circle mb-4" style="width: 100px; height: 70px; transform: rotate(-15deg);">
+              <i class="fa fa-2x fa-envelope-open text-white" style="transform: rotate(15deg);"></i>
+            </div>
+            <h6 class="mb-0">hastanerandevu@gmail.com</h6>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <div class="row justify-content-center position-relative" style="margin-top: -200px; z-index: 1;">
+        <div class="col-lg-8">
+          <div class="bg-white rounded p-5 m-5 mb-0">
+            <form>
+              <div class="row g-3">
+                <div class="col-12 col-sm-6">
+                  <input type="text" class="form-control bg-light border-0" placeholder="Adınız" style="height: 55px;">
+                </div>
+                <div class="col-12 col-sm-6">
+                  <input type="email" class="form-control bg-light border-0" placeholder="Mail Adresiniz" style="height: 55px;">
+                </div>
+                <div class="col-12">
+                  <input type="text" class="form-control bg-light border-0" placeholder="Konu" style="height: 55px;">
+                </div>
+                <div class="col-12">
+                  <textarea class="form-control bg-light border-0" rows="5" placeholder="İçerik"></textarea>
+                </div>
+                <div class="col-12">
+                  <button class="btn btn-primary w-100 py-3" type="submit">Mesajı Gönder</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Contact End -->
+
+
+
+
+<!-- Footer Start -->
+<div class="container-fluid bg-dark text-light mt-5 py-5">
+  <div class="container py-5">
+    <div class="row g-5">
+      <div class="col-lg-3 col-md-6">
+        <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">Temasta Kalın</h4>
+        <p class="mb-4">Aşağıda bulunan iletişim ve adres bilgilerimiz ile dilediğiniz zaman hizmet alabilirsiniz.</p>
+        <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i>8057 , Gaziantep, TÜRKİYE</p>
+        <p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>hastanerandevu@gmail.com</p>
+        <p class="mb-0"><i class="fa fa-phone-alt text-primary me-3"></i>+90 555 555 55 55</p>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">Hızlı Erişim</h4>
+        <div class="d-flex flex-column justify-content-start">
+          <a class="text-light mb-2" href="#index"><i class="fa fa-angle-right me-2"></i>Ana Sayfa</a>
+          <a class="text-light mb-2" href="#about"><i class="fa fa-angle-right me-2"></i>Hakkımızda</a>
+          <a class="text-light mb-2" href="#service"><i class="fa fa-angle-right me-2"></i>Hizmetler</a>
+          <a class="text-light mb-2" href="#team"><i class="fa fa-angle-right me-2"></i>Kadromuz</a>
+
+          <a class="text-light" href="#contact"><i class="fa fa-angle-right me-2"></i>İletişim</a>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+<div class="container-fluid bg-dark text-light border-top border-secondary py-4">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-md-6 text-center text-md-start">
+        <p class="mb-md-0">&copy; <a class="text-primary" href="#">Hastane Randevu Sistemi</a>. All Rights Reserved.</p>
+      </div>
+      <div class="col-md-6 text-center text-md-end">
+        <p class="mb-0">Designed by <a class="text-primary" href="https://www.linkedin.com/in/mustafaailik/">Mustafa Bedirhan İLİK</a></p>
+        <p class="mb-0">Designed by <a class="text-primary" href="https://www.linkedin.com/in/ahmetanildemiryurek/">Ahmet Anıl DEMİRYÜREK</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Footer End -->
+
+
+<!-- Back to Top -->
+<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/lib/easing/easing.min.js"></script>
+<script src="/lib/waypoints/waypoints.min.js"></script>
+<script src="/lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="/lib/tempusdominus/js/moment.min.js"></script>
+<script src="/lib/tempusdominus/js/moment-timezone.min.js"></script>
+<script src="/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="/js/main.js"></script>
+</body>
+
+</html>

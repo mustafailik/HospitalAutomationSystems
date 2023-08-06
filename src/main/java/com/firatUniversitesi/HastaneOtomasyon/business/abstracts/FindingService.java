@@ -6,4 +6,5 @@ import com.firatUniversitesi.HastaneOtomasyon.business.responses.finding.GetById
 public interface FindingService {
     GetByIdFindingResponse getById(int id);
     void add(CreateFindingRequest createFindingRequest);
+    void delete(int id);
 }

@@ -20,6 +20,7 @@ public class Finding {
     @Column(name = "content")
     private String content;
 
+
     @ManyToOne
     @JoinColumn(name = "patient_id")
     private Patient patient;

@@ -21,12 +21,14 @@ public class Patient {
     private int id;
     @Column(name = "name")
     private String name;
-    @Column(name = "surName")
+    @Column(name = "surname")
     private String surName;
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "username")
+    private String username;
+    @Column(name = "password")
+    private String password;
     @Column(name = "identityNumber")
     private String identityNumber;
-
     @OneToMany(mappedBy = "patient")
     private List<Finding> findings;
 
@@ -35,4 +37,7 @@ public class Patient {
 
     @OneToMany(mappedBy = "patient")
     private List<Report> reports;
+
+    @OneToMany(mappedBy = "patient")
+    private List<Appointment> appointments;
 }

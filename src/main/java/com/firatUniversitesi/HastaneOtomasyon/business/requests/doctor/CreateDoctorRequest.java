@@ -21,6 +21,14 @@ public class CreateDoctorRequest {
     private String surName;
     @NotNull
     @NotBlank
+    @Size(min = 2, max = 20)
+    private String userName;
+    @NotNull
+    @NotBlank
+    @Size(min = 2, max = 20)
+    private String password;
+    @NotNull
+    @NotBlank
     private int polyclinicId;
 
 }

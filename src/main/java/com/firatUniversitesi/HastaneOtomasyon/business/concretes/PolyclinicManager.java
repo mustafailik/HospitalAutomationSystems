@@ -32,4 +32,9 @@ public class PolyclinicManager implements PolyclinicService {
         Polyclinic polyclinic = this.modelMapperService.forRequest().map(createPolyclinicRequest, Polyclinic.class);
         this.polyclinicRepository.save(polyclinic);
     }
+
+    @Override
+    public void delete(int id) {
+        this.polyclinicRepository.deleteById(id);
+    }
 }

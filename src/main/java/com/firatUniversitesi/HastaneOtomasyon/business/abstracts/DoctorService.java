@@ -4,6 +4,8 @@ import com.firatUniversitesi.HastaneOtomasyon.business.requests.doctor.CreateDoc
 import com.firatUniversitesi.HastaneOtomasyon.business.requests.doctor.UpdateDoctorRequest;
 import com.firatUniversitesi.HastaneOtomasyon.business.responses.doctor.GetAllDoctorResponse;
 import com.firatUniversitesi.HastaneOtomasyon.business.responses.doctor.GetByIdDoctorResponse;
+import com.firatUniversitesi.HastaneOtomasyon.business.responses.doctor.GetByPolyclinicDoctorResponse;
+import com.firatUniversitesi.HastaneOtomasyon.business.responses.doctor.GetDoctorResponse;
 
 import java.util.List;
 
@@ -13,6 +15,8 @@ public interface DoctorService {
     void add(CreateDoctorRequest createDoctorRequest);
     void update(UpdateDoctorRequest updateDoctorRequest);
     void delete(int id);
+    List<GetByPolyclinicDoctorResponse> getByPolyclinic(int polyclinicID);
 
+    GetDoctorResponse login(String userName, String password);
 
 }

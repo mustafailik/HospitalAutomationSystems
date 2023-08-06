@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Table(name = "doctors")
 @Getter
 @Setter
@@ -21,10 +23,15 @@ public class Doctor {
     private String name;
     @Column(name = "surName")
     private String surName;
-
+    @Column(name = "userName")
+    private String userName;
+    @Column(name = "password")
+    private String password;
     @ManyToOne
     @JoinColumn(name = "polyclinic_id")
     private Polyclinic polyclinic;
+
+
 
 
 }

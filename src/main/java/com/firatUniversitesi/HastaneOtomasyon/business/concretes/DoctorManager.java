@@ -5,13 +5,18 @@ import com.firatUniversitesi.HastaneOtomasyon.business.requests.doctor.CreateDoc
 import com.firatUniversitesi.HastaneOtomasyon.business.requests.doctor.UpdateDoctorRequest;
 import com.firatUniversitesi.HastaneOtomasyon.business.responses.doctor.GetAllDoctorResponse;
 import com.firatUniversitesi.HastaneOtomasyon.business.responses.doctor.GetByIdDoctorResponse;
+import com.firatUniversitesi.HastaneOtomasyon.business.responses.doctor.GetByPolyclinicDoctorResponse;
+import com.firatUniversitesi.HastaneOtomasyon.business.responses.doctor.GetDoctorResponse;
 import com.firatUniversitesi.HastaneOtomasyon.core.utilities.mappers.ModelMapperService;
 import com.firatUniversitesi.HastaneOtomasyon.dataAccess.abstracts.DoctorRepository;
+import com.firatUniversitesi.HastaneOtomasyon.dataAccess.abstracts.PolyclinicRepository;
 import com.firatUniversitesi.HastaneOtomasyon.entities.concretes.Doctor;
+import com.firatUniversitesi.HastaneOtomasyon.entities.concretes.Polyclinic;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -19,6 +24,8 @@ import java.util.stream.Collectors;
 public class DoctorManager implements DoctorService {
     private DoctorRepository doctorRepository;
     private ModelMapperService modelMapperService;
+
+    private PolyclinicRepository polyclinicRepository;
 
 
     @Override
@@ -52,5 +59,27 @@ public class DoctorManager implements DoctorService {
     @Override
     public void delete(int id) {
         this.doctorRepository.deleteById(id);
+    }
+
+    @Override
+    public List<GetByPolyclinicDoctorResponse> getByPolyclinic(int polyclinicID) {
+        Optional<Polyclinic> polyclinic = polyclinicRepository.findById(polyclinicID);
+        List<Doctor> doctors = doctorRepository.findByPolyclinic(polyclinic.get());
+        List<GetByPolyclinicDoctorResponse> doctorsResponse = doctors.stream()
+                .map(doctor -> this.modelMapperService.forResponse()
+                        .map(doctor, GetByPolyclinicDoctorResponse.class)).collect(Collectors.toList());
+        return doctorsResponse;
+    }
+
+    @Override
+    public GetDoctorResponse login(String userName, String password) {
+        Optional<Doctor> doctorOp = doctorRepository.findByUserName(userName);
+        if( !doctorOp.isPresent()){
+         return null;
+        }
+        if(doctorOp.get().getPassword().equals(password)){
+           return this.modelMapperService.forResponse().map(doctorOp.get(), GetDoctorResponse.class);
+        }
+        return null;
     }
 }

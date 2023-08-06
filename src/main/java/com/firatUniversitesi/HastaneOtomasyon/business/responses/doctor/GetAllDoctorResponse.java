@@ -11,5 +11,7 @@ public class GetAllDoctorResponse {
     private int id;
     private String name;
     private String surName;
+    private String username;
+    private String password;
     private String polyclinicName;
 }

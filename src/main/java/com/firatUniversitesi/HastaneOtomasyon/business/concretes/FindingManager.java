@@ -29,4 +29,9 @@ public class FindingManager implements FindingService {
         Finding finding = this.modelMapperService.forRequest().map(createFindingRequest, Finding.class);
         this.findingRepository.save(finding);
     }
+
+    @Override
+    public void delete(int id) {
+        this.findingRepository.deleteById(id);
+    }
 }

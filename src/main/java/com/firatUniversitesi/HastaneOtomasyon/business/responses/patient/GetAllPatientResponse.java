@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 public class GetAllPatientResponse {
     private int id;
     private String name;
-    private String surName;
+    private String surname;
+    private String username;
+    private String password;
     private String identityNumber;
 }
